@@ -3,10 +3,34 @@
 
 NSSpeechSynthesizer API for 4D.
 
-Platform
---------
-4D Cocoa (v14/10.8+)
+##Platform
 
-or 
+| carbon | cocoa | win32 | win64 |
+|:------:|:-----:|:---------:|:---------:|
+|🚫|🚫|🆗|🆗|
 
-4D Carbon (v11~v14/10.6+) inside folder "v11"
+Commands
+---
+
+```c
+// --- Speech
+SPEECH_New
+SPEECH_SET_RATE
+SPEECH_Get_rate
+SPEECH_SET_VOICE
+SPEECH_Get_voice
+SPEECH_SET_VOLUME
+SPEECH_Get_volume
+SPEECH_START
+SPEECH_PAUSE
+SPEECH_CONTINUE
+SPEECH_CLEAR
+
+// --- Voice
+SPEECH_VOICE_LIST
+SPEECH_Default_voice
+
+// --- Speech
+SPEECH_To_data
+SPEECH_Is_speaking
+```
