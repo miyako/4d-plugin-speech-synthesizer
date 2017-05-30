@@ -18,6 +18,7 @@
 
 #pragma mark NSSpeechSynthesizerDelegate
 
+
 @interface SpeechSynthesizerDelegate : NSObject <NSSpeechSynthesizerDelegate>
 {
 	uint32_t indx;
@@ -30,29 +31,42 @@
 
 - (void)abort;
 
+- (BOOL)isSpeaking;
+
 @end
 
-std::map<uint32_t, SpeechSynthesizerDelegate*> speech_contexts;
-
-uint32_t speech_context_add(SpeechSynthesizerDelegate *speech)
+namespace speech
 {
-	uint32_t i = 1;
-	
-	while (speech_contexts.find(i) != speech_contexts.end()) i++;
-	
-	speech_contexts.insert(std::map<uint32_t, SpeechSynthesizerDelegate*>::value_type(i, speech));
-	
-	return i;
-}
+	//flag to prevent creating instances after OnExit
+	BOOL isDying = NO;
 
-void speech_context_remove(uint32_t i)
-{
-	std::map<uint32_t, SpeechSynthesizerDelegate*>::iterator pos = speech_contexts.find(i);
+	std::map<uint32_t, SpeechSynthesizerDelegate*> speech_contexts;
 	
-	if(pos != speech_contexts.end())
+	uint32_t speech_context_add(SpeechSynthesizerDelegate *speech)
 	{
-		speech_contexts.erase(pos);
+		uint32_t i = 1;
+		
+		while (speech_contexts.find(i) != speech_contexts.end()) i++;
+		
+		speech_contexts.insert(std::map<uint32_t, SpeechSynthesizerDelegate*>::value_type(i, speech));
+		
+		//	NSLog(@"add%i", i);
+		
+		return i;
 	}
+	
+	void speech_context_remove(uint32_t i)
+	{
+		std::map<uint32_t, SpeechSynthesizerDelegate*>::iterator pos = speech_contexts.find(i);
+		
+		if(pos != speech_contexts.end())
+		{
+			speech_contexts.erase(pos);
+			
+			//		NSLog(@"remove%i", i);
+		}
+	}
+	
 }
 
 @implementation SpeechSynthesizerDelegate
@@ -64,39 +78,53 @@ void speech_context_remove(uint32_t i)
 	if (self)
 	{
 		speechSynthesizer = [[NSSpeechSynthesizer alloc]initWithVoice:voice];
-		indx = speech_context_add(self);
 		
-		[speechSynthesizer setVolume:volume];
-		[speechSynthesizer setRate:rate];
-		[speechSynthesizer setDelegate:self];
-		
-		if(url)
+		if(speechSynthesizer)
 		{
-			[speechSynthesizer startSpeakingString:text toURL:url];
-		}else
-		{
-			[speechSynthesizer startSpeakingString:text];
+			indx = speech::speech_context_add(self);
+			
+			[speechSynthesizer setVolume:volume];
+			[speechSynthesizer setRate:rate];
+			[speechSynthesizer setDelegate:self];
+			
+			if(url)
+			{
+				[speechSynthesizer startSpeakingString:text toURL:url];
+			}else
+			{
+				[speechSynthesizer startSpeakingString:text];
+			}
+			
 		}
 	}
+	
 	return self;
 }
 
 - (void)abort
 {
-	[speechSynthesizer setDelegate:nil];
-	
-	[speechSynthesizer stopSpeaking];
-	
-	[speechSynthesizer release];
-	
-	[self release];
+	if(speechSynthesizer)
+	{
+		[speechSynthesizer setDelegate:nil];
+		[speechSynthesizer release];
+		speechSynthesizer = nil;
+	}
+
+	[super dealloc];
 }
 
 - (void)speechSynthesizer:(NSSpeechSynthesizer *)sender didFinishSpeaking:(BOOL)success
 {
-	speech_context_remove(indx);
+	speech::speech_context_remove(indx);
 	
 	[self abort];
+}
+
+- (BOOL)isSpeaking
+{
+	if(!speechSynthesizer) return NO;
+	
+	return [speechSynthesizer isSpeaking];
 }
 
 @end
@@ -112,31 +140,37 @@ typedef struct
 
 void say(say_ctx *ctx)
 {
-	NSString *voice = nil;
-	
-	if(ctx->voice)
+	if(!speech::isDying)
 	{
-		NSArray *voices = [NSSpeechSynthesizer availableVoices];
-		NSUInteger i = [voices indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop)
-										{
-											if ([(NSString *)obj isEqualToString:ctx->voice])
-											{
-												return YES;
-											}
-											return NO;
-										}];
 		
-		if(NSNotFound != i)
+		NSString *voice = nil;
+		
+		if(ctx->voice)
 		{
-			voice = [voices objectAtIndex:i];
+			NSArray *voices = [NSSpeechSynthesizer availableVoices];
+			NSUInteger i = [voices indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop)
+											{
+												if ([(NSString *)obj isEqualToString:ctx->voice])
+												{
+													return YES;
+												}
+												return NO;
+											}];
+			
+			if(NSNotFound != i)
+			{
+				voice = [voices objectAtIndex:i];
+			}
 		}
+		
+		[[SpeechSynthesizerDelegate alloc]initWithVoice:voice
+																						 volume:ctx->volume
+																							 rate:ctx->rate
+																								url:ctx->url
+																							 text:ctx->text];
+		
 	}
 	
-	[[SpeechSynthesizerDelegate alloc]initWithVoice:voice
-																					 volume:ctx->volume
-																						 rate:ctx->rate
-																							url:ctx->url
-																						 text:ctx->text];
 }
 
 #pragma mark -
@@ -155,21 +189,22 @@ bool IsProcessOnExit()
 
 void OnExit()
 {
-	for(std::map<uint32_t, SpeechSynthesizerDelegate*>::iterator i = speech_contexts.begin(); i != speech_contexts.end(); i++)
+	for(std::map<uint32_t, SpeechSynthesizerDelegate*>::iterator i = speech::speech_contexts.begin(); i != speech::speech_contexts.end(); i++)
 	{
 		SpeechSynthesizerDelegate *speech = i->second;
 		[speech abort];
-		
-		/* messaging system arrives too late; call the delegate method directly */
 	}
-	speech_contexts.clear();
+	
+	speech::speech_contexts.clear();
 }
 
 void OnCloseProcess()
 {
 	if(IsProcessOnExit())
 	{
-		OnExit();
+		speech::isDying = YES;
+		
+		PA_RunInMainProcess((PA_RunInMainProcessProcPtr)OnExit, NULL);
 	}
 }
 
@@ -247,9 +282,6 @@ void SAY(sLONG_PTR *pResult, PackagePtr pParams)
 	Param2.fromParamAtIndex(pParams, 2);
 	Param3.fromParamAtIndex(pParams, 3);
 
-	//this assertion has not effect...
-	if(!PA_IsProcessDying())
-	{
 #if VERSIONMAC
 		
 		say_ctx ctx;
@@ -281,7 +313,7 @@ void SAY(sLONG_PTR *pResult, PackagePtr pParams)
 			}
 			cJSON_Delete(json);
 		}
-		
+
 		PA_RunInMainProcess((PA_RunInMainProcessProcPtr)say, &ctx);
 		
 		[ctx.text release];
@@ -290,6 +322,5 @@ void SAY(sLONG_PTR *pResult, PackagePtr pParams)
 #else
 		
 #endif
-	}
 	
 }
