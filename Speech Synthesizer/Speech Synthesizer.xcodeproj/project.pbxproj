@@ -53,6 +53,8 @@
 		D13116F51A03C7AF00DE1322 /* ARRAY_DATE.h in Headers */ = {isa = PBXBuildFile; fileRef = D13116F31A03C7AF00DE1322 /* ARRAY_DATE.h */; };
 		D134D4AC1A030BA0008D14EF /* manifest.json in CopyFiles */ = {isa = PBXBuildFile; fileRef = D134D4A91A030B06008D14EF /* manifest.json */; };
 		D175D9CD1A02E8DD0006B569 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D175D9CC1A02E8DD0006B569 /* CoreGraphics.framework */; };
+		D18072A61EDD44030002C420 /* cJSON.c in Sources */ = {isa = PBXBuildFile; fileRef = D18072A11EDD44030002C420 /* cJSON.c */; };
+		D18072A71EDD44030002C420 /* cJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = D18072A21EDD44030002C420 /* cJSON.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -118,6 +120,8 @@
 		D134D4A91A030B06008D14EF /* manifest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = manifest.json; sourceTree = "<group>"; };
 		D14D10DD1A03A8A5008B3411 /* constants.xlf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = constants.xlf; sourceTree = "<group>"; };
 		D175D9CC1A02E8DD0006B569 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D18072A11EDD44030002C420 /* cJSON.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = cJSON.c; sourceTree = "<group>"; };
+		D18072A21EDD44030002C420 /* cJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cJSON.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +141,7 @@
 		089C166AFE841209C02AAC07 /* Speech Synthesizer */ = {
 			isa = PBXGroup;
 			children = (
+				D18072A01EDD44030002C420 /* cJSON */,
 				D108BD7A1A03D1E6001F1B90 /* Manifest */,
 				08FB77ADFE841716C02AAC07 /* Source */,
 				089C167CFE841241C02AAC07 /* Resources */,
@@ -253,6 +258,15 @@
 			name = ARRAY;
 			sourceTree = "<group>";
 		};
+		D18072A01EDD44030002C420 /* cJSON */ = {
+			isa = PBXGroup;
+			children = (
+				D18072A11EDD44030002C420 /* cJSON.c */,
+				D18072A21EDD44030002C420 /* cJSON.h */,
+			);
+			path = cJSON;
+			sourceTree = "<group>";
+		};
 		D19CC171135378140004336E /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -287,6 +301,7 @@
 				D13116BB1A03B3C300DE1322 /* C_REAL.h in Headers */,
 				D13116E71A03BC1100DE1322 /* ARRAY_LONGINT.h in Headers */,
 				D13116C51A03B48900DE1322 /* C_TEXT.h in Headers */,
+				D18072A71EDD44030002C420 /* cJSON.h in Headers */,
 				D13116AD1A03B10800DE1322 /* C_LONGINT.h in Headers */,
 				D120937F13534DCC00A72CAA /* 4DPlugin.h in Headers */,
 				D13116E51A03BC1100DE1322 /* ARRAY_INTEGER.h in Headers */,
@@ -325,7 +340,7 @@
 		089C1669FE841209C02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0700;
 			};
 			buildConfigurationList = 42D60B430A9DDBC8002ABB42 /* Build configuration list for PBXProject "Speech Synthesizer" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -388,6 +403,7 @@
 				D13116EC1A03BE2300DE1322 /* ARRAY_TIME.cpp in Sources */,
 				D13116B01A03B33D00DE1322 /* C_INTEGER.cpp in Sources */,
 				D13116A91A03ACB700DE1322 /* 4DPluginAPI.c in Sources */,
+				D18072A61EDD44030002C420 /* cJSON.c in Sources */,
 				D13116E21A03BC1100DE1322 /* ARRAY_BOOLEAN.cpp in Sources */,
 				D13116BA1A03B3C300DE1322 /* C_REAL.cpp in Sources */,
 				D13116F41A03C7AF00DE1322 /* ARRAY_DATE.cpp in Sources */,
@@ -411,6 +427,8 @@
 		42D60B400A9DDBC8002ABB42 /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_LINK_OBJC_RUNTIME = NO;
+				CODE_SIGN_IDENTITY = "Developer ID Application: keisuke miyako (Y69CWUC25B)";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUGGING_SYMBOLS = YES;
@@ -449,6 +467,8 @@
 		42D60B410A9DDBC8002ABB42 /* Deployment */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_LINK_OBJC_RUNTIME = NO;
+				CODE_SIGN_IDENTITY = "Developer ID Application: keisuke miyako (Y69CWUC25B)";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEPLOYMENT_LOCATION = NO;
@@ -484,6 +504,8 @@
 		42D60B420A9DDBC8002ABB42 /* Default */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_LINK_OBJC_RUNTIME = NO;
+				CODE_SIGN_IDENTITY = "Developer ID Application: keisuke miyako (Y69CWUC25B)";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEPLOYMENT_LOCATION = NO;
 				FRAMEWORK_SEARCH_PATHS = "";

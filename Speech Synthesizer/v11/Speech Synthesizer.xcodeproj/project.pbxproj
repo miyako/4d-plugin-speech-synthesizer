@@ -15,6 +15,11 @@
 		18B684FB06944F2000CC6A1E /* PublicTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 18B684F406944F2000CC6A1E /* PublicTypes.h */; };
 		18B685230694531300CC6A1E /* 4DPlugin.rsrc in Rez */ = {isa = PBXBuildFile; fileRef = 18B685220694531300CC6A1E /* 4DPlugin.rsrc */; };
 		8D01CCCE0486CAD60068D4B7 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08EA7FFBFE8413EDC02AAC07 /* Carbon.framework */; };
+		D114F3AA1EDD6C960092CE4F /* cJSON.c in Sources */ = {isa = PBXBuildFile; fileRef = D114F3A51EDD6C960092CE4F /* cJSON.c */; };
+		D114F3AB1EDD6C960092CE4F /* cJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = D114F3A61EDD6C960092CE4F /* cJSON.h */; };
+		D114F3AC1EDD6C960092CE4F /* CONTRIBUTORS.md in Sources */ = {isa = PBXBuildFile; fileRef = D114F3A71EDD6C960092CE4F /* CONTRIBUTORS.md */; };
+		D114F3AD1EDD6C960092CE4F /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D114F3A81EDD6C960092CE4F /* LICENSE */; };
+		D114F3AE1EDD6C960092CE4F /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D114F3A91EDD6C960092CE4F /* README.md */; };
 		D130064F12F02D9700702C0E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D130064E12F02D9700702C0E /* Cocoa.framework */; };
 		D14D83BA1A0E5C0F00AEAB07 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D14D83B61A0E5C0F00AEAB07 /* InfoPlist.strings */; };
 		D14D83BD1A0E5CC600AEAB07 /* 4D Plugin_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = D14D83BC1A0E5CC600AEAB07 /* 4D Plugin_Prefix.pch */; };
@@ -50,6 +55,7 @@
 		D14D83FD1A0E5EBF00AEAB07 /* ARRAY_REAL.h in Headers */ = {isa = PBXBuildFile; fileRef = D14D83F11A0E5EBF00AEAB07 /* ARRAY_REAL.h */; };
 		D14D83FE1A0E5EBF00AEAB07 /* ARRAY_TEXT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D14D83F21A0E5EBF00AEAB07 /* ARRAY_TEXT.cpp */; };
 		D14D83FF1A0E5EBF00AEAB07 /* ARRAY_TEXT.h in Headers */ = {isa = PBXBuildFile; fileRef = D14D83F31A0E5EBF00AEAB07 /* ARRAY_TEXT.h */; };
+		D176169C1B4FD0BC000FEC42 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D176169B1B4FD0BC000FEC42 /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,7 +68,11 @@
 		18B684F306944F2000CC6A1E /* PrivateTypes.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = PrivateTypes.h; sourceTree = "<group>"; };
 		18B684F406944F2000CC6A1E /* PublicTypes.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = PublicTypes.h; sourceTree = "<group>"; };
 		18B685220694531300CC6A1E /* 4DPlugin.rsrc */ = {isa = PBXFileReference; lastKnownFileType = archive.rsrc; path = 4DPlugin.rsrc; sourceTree = "<group>"; };
-		8D01CCD10486CAD60068D4B7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D114F3A51EDD6C960092CE4F /* cJSON.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cJSON.c; sourceTree = "<group>"; };
+		D114F3A61EDD6C960092CE4F /* cJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cJSON.h; sourceTree = "<group>"; };
+		D114F3A71EDD6C960092CE4F /* CONTRIBUTORS.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTORS.md; sourceTree = "<group>"; };
+		D114F3A81EDD6C960092CE4F /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		D114F3A91EDD6C960092CE4F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D130064E12F02D9700702C0E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		D14D83B71A0E5C0F00AEAB07 /* English */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = English; path = InfoPlist.strings; sourceTree = "<group>"; };
 		D14D83BC1A0E5CC600AEAB07 /* 4D Plugin_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "4D Plugin_Prefix.pch"; path = "../4D Plugin_Prefix.pch"; sourceTree = "<group>"; };
@@ -98,6 +108,7 @@
 		D14D83F11A0E5EBF00AEAB07 /* ARRAY_REAL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARRAY_REAL.h; path = "../../4D Plugin API/Classes/ARRAY_REAL.h"; sourceTree = "<group>"; };
 		D14D83F21A0E5EBF00AEAB07 /* ARRAY_TEXT.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = ARRAY_TEXT.cpp; path = "../../4D Plugin API/Classes/ARRAY_TEXT.cpp"; sourceTree = "<group>"; };
 		D14D83F31A0E5EBF00AEAB07 /* ARRAY_TEXT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARRAY_TEXT.h; path = "../../4D Plugin API/Classes/ARRAY_TEXT.h"; sourceTree = "<group>"; };
+		D176169B1B4FD0BC000FEC42 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +127,7 @@
 		089C166AFE841209C02AAC07 /* Speech Synthesizer */ = {
 			isa = PBXGroup;
 			children = (
+				D114F3A41EDD6C960092CE4F /* cJSON */,
 				08FB77ADFE841716C02AAC07 /* Source */,
 				089C167CFE841241C02AAC07 /* Resources */,
 				089C1671FE841209C02AAC07 /* External Frameworks and Libraries */,
@@ -136,7 +148,7 @@
 		089C167CFE841241C02AAC07 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				8D01CCD10486CAD60068D4B7 /* Info.plist */,
+				D176169B1B4FD0BC000FEC42 /* Info.plist */,
 				D14D83B61A0E5C0F00AEAB07 /* InfoPlist.strings */,
 				18B685220694531300CC6A1E /* 4DPlugin.rsrc */,
 			);
@@ -174,6 +186,19 @@
 				18B684F406944F2000CC6A1E /* PublicTypes.h */,
 			);
 			path = "4D Plugin API";
+			sourceTree = "<group>";
+		};
+		D114F3A41EDD6C960092CE4F /* cJSON */ = {
+			isa = PBXGroup;
+			children = (
+				D114F3A51EDD6C960092CE4F /* cJSON.c */,
+				D114F3A61EDD6C960092CE4F /* cJSON.h */,
+				D114F3A71EDD6C960092CE4F /* CONTRIBUTORS.md */,
+				D114F3A81EDD6C960092CE4F /* LICENSE */,
+				D114F3A91EDD6C960092CE4F /* README.md */,
+			);
+			name = cJSON;
+			path = ../cJSON;
 			sourceTree = "<group>";
 		};
 		D14D83BE1A0E5D1F00AEAB07 /* C */ = {
@@ -256,6 +281,7 @@
 				18B684FA06944F2000CC6A1E /* PrivateTypes.h in Headers */,
 				D14D83E01A0E5D3100AEAB07 /* C_TEXT.h in Headers */,
 				D14D83D41A0E5D3100AEAB07 /* C_DATE.h in Headers */,
+				D114F3AB1EDD6C960092CE4F /* cJSON.h in Headers */,
 				D14D83F91A0E5EBF00AEAB07 /* ARRAY_INTEGER.h in Headers */,
 				18B684FB06944F2000CC6A1E /* PublicTypes.h in Headers */,
 			);
@@ -290,7 +316,7 @@
 		089C1669FE841209C02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0700;
 			};
 			buildConfigurationList = 42D60B430A9DDBC8002ABB42 /* Build configuration list for PBXProject "Speech Synthesizer" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -317,6 +343,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D114F3AD1EDD6C960092CE4F /* LICENSE in Resources */,
+				D176169C1B4FD0BC000FEC42 /* Info.plist in Resources */,
 				D14D83BA1A0E5C0F00AEAB07 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,9 +367,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D114F3AC1EDD6C960092CE4F /* CONTRIBUTORS.md in Sources */,
 				D14D83F61A0E5EBF00AEAB07 /* ARRAY_DATE.cpp in Sources */,
+				D114F3AE1EDD6C960092CE4F /* README.md in Sources */,
 				D14D83FC1A0E5EBF00AEAB07 /* ARRAY_REAL.cpp in Sources */,
 				D14D83F41A0E5EBF00AEAB07 /* ARRAY_BOOLEAN.cpp in Sources */,
+				D114F3AA1EDD6C960092CE4F /* cJSON.c in Sources */,
 				D14D83D11A0E5D3100AEAB07 /* C_BLOB.cpp in Sources */,
 				D14D83DD1A0E5D3100AEAB07 /* C_REAL.cpp in Sources */,
 				D14D83FA1A0E5EBF00AEAB07 /* ARRAY_LONGINT.cpp in Sources */,
@@ -377,6 +408,7 @@
 		42D60B400A9DDBC8002ABB42 /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Developer ID Application: keisuke miyako (Y69CWUC25B)";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUGGING_SYMBOLS = YES;
@@ -394,7 +426,7 @@
 				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
 				GCC_WARN_UNKNOWN_PRAGMAS = NO;
 				HEADER_SEARCH_PATHS = "";
-				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_FILE = ../Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Bundles";
 				LIBRARY_SEARCH_PATHS = "";
 				LIBRARY_STYLE = Bundle;
@@ -416,6 +448,7 @@
 		42D60B410A9DDBC8002ABB42 /* Deployment */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Developer ID Application: keisuke miyako (Y69CWUC25B)";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEPLOYMENT_LOCATION = NO;
@@ -430,7 +463,7 @@
 				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
 				GCC_WARN_UNKNOWN_PRAGMAS = NO;
 				HEADER_SEARCH_PATHS = "";
-				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_FILE = ../Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Bundles";
 				LIBRARY_SEARCH_PATHS = "";
 				LIBRARY_STYLE = Bundle;
@@ -452,6 +485,7 @@
 		42D60B420A9DDBC8002ABB42 /* Default */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Developer ID Application: keisuke miyako (Y69CWUC25B)";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEPLOYMENT_LOCATION = NO;
 				FRAMEWORK_SEARCH_PATHS = "";
@@ -464,7 +498,7 @@
 				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
 				GCC_WARN_UNKNOWN_PRAGMAS = NO;
 				HEADER_SEARCH_PATHS = "";
-				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_FILE = ../Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Bundles";
 				LIBRARY_SEARCH_PATHS = "";
 				LIBRARY_STYLE = Bundle;

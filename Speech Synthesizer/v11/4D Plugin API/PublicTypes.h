@@ -18,7 +18,7 @@
 
 // all the 4D Application structures use 2 bytes alignment
 #pragma pack(push,2)
-
+ 
 #if VERSIONWIN
 typedef __int64 PA_long64;
 typedef unsigned __int64 PA_ulong64;
