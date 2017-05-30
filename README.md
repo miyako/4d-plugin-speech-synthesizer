@@ -1,7 +1,7 @@
 4d-plugin-speech-synthesizer
 ============================
 
-Native API.
+Native Speech Synthesiser API
 
 ### Platform
 
