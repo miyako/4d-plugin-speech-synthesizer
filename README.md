@@ -12,12 +12,12 @@ Native Speech Synthesiser API
 ## Syntax
 
 ```
-SAY (voice;options{;path})
+SAY (text;options{;path})
 ```
 
 Parameter|Type|Description
 ------------|------------|----
-voice|TEXT|
+text|TEXT|text to speak
 options|TEXT|options in JSON format; supported attributes are: ``rate``, ``volume``, ``voice``
 path|TEXT|location to create file
 
@@ -41,6 +41,9 @@ format.wBitsPerSample = 16;
 format.wFormatTag =WAVE_FORMAT_PCM;
 ```
 
+On Windows, if the text begins with a ``<`` it is parsed as XML. See [SPEAKFLAGS](https://msdn.microsoft.com/en-us/library/ee431843(v=vs.85).aspx) for details.
+
+On Windows, [``rate``](https://msdn.microsoft.com/en-us/library/ms719798(v=vs.85).aspx) must be between ``-10`` and ``10``.
 
 Parameter|Type|Description
 ------------|------------|----
