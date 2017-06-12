@@ -47,6 +47,7 @@ On Windows, [``rate``](https://msdn.microsoft.com/en-us/library/ms719798(v=vs.85
 
 On Windows, [``volume``](https://msdn.microsoft.com/en-us/library/ms719811(v=vs.85).aspx) must be between ``0`` and ``100``.
 
+On Windows, the speach is synchronous.
 
 Parameter|Type|Description
 ------------|------------|----
