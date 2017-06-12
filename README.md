@@ -49,6 +49,12 @@ On Windows, [``volume``](https://msdn.microsoft.com/en-us/library/ms719811(v=vs.
 
 On Windows, the speach is synchronous.
 
+On macOS, [``rate``](https://developer.apple.com/documentation/appkit/nsspeechsynthesizer/1448450-rate?language=objc) is the number of words per minute.
+
+On macOS, [``volume``](https://developer.apple.com/documentation/appkit/nsspeechsynthesizer/1448501-volume?language=objc) must be between ``0.0`` and ``1.0``.
+
+On Windows, the speach is **a**synchronous.
+
 Parameter|Type|Description
 ------------|------------|----
 voices|ARRAY TEXT|
