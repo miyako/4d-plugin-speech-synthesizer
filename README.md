@@ -53,7 +53,7 @@ On macOS, [``rate``](https://developer.apple.com/documentation/appkit/nsspeechsy
 
 On macOS, [``volume``](https://developer.apple.com/documentation/appkit/nsspeechsynthesizer/1448501-volume?language=objc) must be between ``0.0`` and ``1.0``.
 
-On Windows, the speach is **a**synchronous.
+On macOS, the speach is **a**synchronous.
 
 Parameter|Type|Description
 ------------|------------|----
