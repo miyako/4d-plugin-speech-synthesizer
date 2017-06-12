@@ -19,11 +19,28 @@ Parameter|Type|Description
 ------------|------------|----
 voice|TEXT|
 options|TEXT|
-path|TEXT|location to create ``aiff`` file on Mac
+path|TEXT|location to create file
 
 ```
 VOICES LIST (voices)
 ```
+
+If ``path``is specified, a ``WAV`` file is created on Windows. The format is hard coded, as shown below.
+
+```c
+WAVEFORMATEX format;
+const GUID guid = SPDFID_WaveFormatEx;
+
+//SPSF_16kHz16BitMono;
+format.cbSize = 0;
+format.nAvgBytesPerSec = 32000;
+format.nBlockAlign = 2;
+format.nChannels = 1;
+format.nSamplesPerSec = 16000;
+format.wBitsPerSample = 16;
+format.wFormatTag =WAVE_FORMAT_PCM;
+```
+
 
 Parameter|Type|Description
 ------------|------------|----
