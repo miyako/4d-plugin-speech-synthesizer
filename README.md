@@ -45,6 +45,9 @@ On Windows, if the text begins with a ``<`` it is parsed as XML. See [SPEAKFLAGS
 
 On Windows, [``rate``](https://msdn.microsoft.com/en-us/library/ms719798(v=vs.85).aspx) must be between ``-10`` and ``10``.
 
+On Windows, [``volume``](https://msdn.microsoft.com/en-us/library/ms719811(v=vs.85).aspx) must be between ``0`` and ``100``.
+
+
 Parameter|Type|Description
 ------------|------------|----
 voices|ARRAY TEXT|
