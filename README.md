@@ -18,7 +18,7 @@ SAY (voice;options{;path})
 Parameter|Type|Description
 ------------|------------|----
 voice|TEXT|
-options|TEXT|
+options|TEXT|options in JSON format; supported attributes are: ``rate``, ``volume``, ``voice``
 path|TEXT|location to create file
 
 ```
