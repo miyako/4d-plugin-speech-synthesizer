@@ -25,7 +25,9 @@ path|TEXT|location to create file
 VOICES LIST (voices)
 ```
 
-If ``path``is specified, a ``WAV`` file is created on Windows. The format is hard coded, as shown below.
+### Windows
+
+If ``path``is specified, a ``WAV`` file is created. The format is hard coded, as shown below.
 
 ```c
 WAVEFORMATEX format;
@@ -41,19 +43,28 @@ format.wBitsPerSample = 16;
 format.wFormatTag =WAVE_FORMAT_PCM;
 ```
 
-On Windows, if the text begins with a ``<`` it is parsed as XML. See [SPEAKFLAGS](https://msdn.microsoft.com/en-us/library/ee431843(v=vs.85).aspx) for details.
+If the text begins with a ``<`` it is parsed as XML. See [SPEAKFLAGS](https://msdn.microsoft.com/en-us/library/ee431843(v=vs.85).aspx) for details.
 
-On Windows, [``rate``](https://msdn.microsoft.com/en-us/library/ms719798(v=vs.85).aspx) must be between ``-10`` and ``10``.
+[``rate``](https://msdn.microsoft.com/en-us/library/ms719798(v=vs.85).aspx) must be between ``-10`` and ``10``.
 
-On Windows, [``volume``](https://msdn.microsoft.com/en-us/library/ms719811(v=vs.85).aspx) must be between ``0`` and ``100``.
+[``volume``](https://msdn.microsoft.com/en-us/library/ms719811(v=vs.85).aspx) must be between ``0`` and ``100``.
 
-On Windows, the speach is synchronous.
+The speach is synchronous.
 
-On macOS, [``rate``](https://developer.apple.com/documentation/appkit/nsspeechsynthesizer/1448450-rate?language=objc) is the number of words per minute.
+### macOS
 
-On macOS, [``volume``](https://developer.apple.com/documentation/appkit/nsspeechsynthesizer/1448501-volume?language=objc) must be between ``0.0`` and ``1.0``.
+If ``path``is specified, an ``AIFF`` file is created. You can convert it to ``WAV`` with ``afconvert``.
 
-On macOS, the speach is **a**synchronous.
+```sh
+/usr/bin/afconvert \
+{srcPath} {dstPath} -d LEI16@16000 -f WAVE -l Mono
+```
+
+[``rate``](https://developer.apple.com/documentation/appkit/nsspeechsynthesizer/1448450-rate?language=objc) is the number of words per minute.
+
+[``volume``](https://developer.apple.com/documentation/appkit/nsspeechsynthesizer/1448501-volume?language=objc) must be between ``0.0`` and ``1.0``.
+
+Tthe speach is **a**synchronous.
 
 Parameter|Type|Description
 ------------|------------|----
