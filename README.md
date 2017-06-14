@@ -33,7 +33,6 @@ If ``path``is specified, a ``WAV`` file is created. The format is hard coded, as
 WAVEFORMATEX format;
 const GUID guid = SPDFID_WaveFormatEx;
 
-//SPSF_16kHz16BitMono;
 format.cbSize = 0;
 format.nAvgBytesPerSec = 44100;
 format.nBlockAlign = 2;
