@@ -35,10 +35,10 @@ const GUID guid = SPDFID_WaveFormatEx;
 
 //SPSF_16kHz16BitMono;
 format.cbSize = 0;
-format.nAvgBytesPerSec = 32000;
+format.nAvgBytesPerSec = 44100;
 format.nBlockAlign = 2;
 format.nChannels = 1;
-format.nSamplesPerSec = 16000;
+format.nSamplesPerSec = 22050;
 format.wBitsPerSample = 16;
 format.wFormatTag =WAVE_FORMAT_PCM;
 ```
@@ -53,7 +53,11 @@ The speach is synchronous.
 
 ### macOS
 
-If ``path``is specified, an ``AIFF`` file is created. You can convert it to ``WAV`` with ``afconvert``.
+If ``path``is specified, an ``AIFF`` file is created. 
+
+The quality is the same as on Windows, namely, mono, 16 bit per sample, sample rate 22050. 
+
+You can convert it to ``WAV`` with ``afconvert``.
 
 ```sh
 /usr/bin/afconvert \
