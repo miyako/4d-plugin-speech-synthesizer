@@ -15,7 +15,7 @@
 #include <sphelper.h>  
 #endif
 
-#include "cJSON.h"
+#include "libjson.h"
 
 // --- Speech
 void VOICES_LIST(sLONG_PTR *pResult, PackagePtr pParams);

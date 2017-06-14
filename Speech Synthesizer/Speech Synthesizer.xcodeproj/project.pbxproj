@@ -52,9 +52,8 @@
 		D13116F41A03C7AF00DE1322 /* ARRAY_DATE.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D13116F21A03C7AF00DE1322 /* ARRAY_DATE.cpp */; };
 		D13116F51A03C7AF00DE1322 /* ARRAY_DATE.h in Headers */ = {isa = PBXBuildFile; fileRef = D13116F31A03C7AF00DE1322 /* ARRAY_DATE.h */; };
 		D134D4AC1A030BA0008D14EF /* manifest.json in CopyFiles */ = {isa = PBXBuildFile; fileRef = D134D4A91A030B06008D14EF /* manifest.json */; };
+		D14BF4211EF0C29900E50D71 /* libjson.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D14BF4201EF0C29900E50D71 /* libjson.a */; };
 		D175D9CD1A02E8DD0006B569 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D175D9CC1A02E8DD0006B569 /* CoreGraphics.framework */; };
-		D1AB8BD61EEEDCF800623AE3 /* cJSON.c in Sources */ = {isa = PBXBuildFile; fileRef = D1AB8BD41EEEDCF800623AE3 /* cJSON.c */; };
-		D1AB8BD71EEEDCF800623AE3 /* cJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = D1AB8BD51EEEDCF800623AE3 /* cJSON.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -118,10 +117,9 @@
 		D13116F21A03C7AF00DE1322 /* ARRAY_DATE.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = ARRAY_DATE.cpp; path = Classes/ARRAY_DATE.cpp; sourceTree = "<group>"; };
 		D13116F31A03C7AF00DE1322 /* ARRAY_DATE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARRAY_DATE.h; path = Classes/ARRAY_DATE.h; sourceTree = "<group>"; };
 		D134D4A91A030B06008D14EF /* manifest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = manifest.json; sourceTree = "<group>"; };
+		D14BF4201EF0C29900E50D71 /* libjson.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjson.a; path = a/libjson.a; sourceTree = "<group>"; };
 		D14D10DD1A03A8A5008B3411 /* constants.xlf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = constants.xlf; sourceTree = "<group>"; };
 		D175D9CC1A02E8DD0006B569 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		D1AB8BD41EEEDCF800623AE3 /* cJSON.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = cJSON.c; path = cJSON/cJSON.c; sourceTree = "<group>"; };
-		D1AB8BD51EEEDCF800623AE3 /* cJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cJSON.h; path = cJSON/cJSON.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D14BF4211EF0C29900E50D71 /* libjson.a in Frameworks */,
 				D13116C71A03B5B600DE1322 /* AppKit.framework in Frameworks */,
 				D175D9CD1A02E8DD0006B569 /* CoreGraphics.framework in Frameworks */,
 				D130064F12F02D9700702C0E /* Cocoa.framework in Frameworks */,
@@ -146,6 +145,7 @@
 				089C167CFE841241C02AAC07 /* Resources */,
 				089C1671FE841209C02AAC07 /* External Frameworks and Libraries */,
 				189286360695AD8900B05D6E /* Products */,
+				D14BF41F1EF0C29900E50D71 /* Frameworks */,
 			);
 			name = "Speech Synthesizer";
 			sourceTree = "<group>";
@@ -172,8 +172,6 @@
 		08FB77ADFE841716C02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				D1AB8BD41EEEDCF800623AE3 /* cJSON.c */,
-				D1AB8BD51EEEDCF800623AE3 /* cJSON.h */,
 				18B684FE06944F8800CC6A1E /* 4DPlugin.cpp */,
 				D120937E13534DCC00A72CAA /* 4DPlugin.h */,
 				18B684ED06944F2000CC6A1E /* 4D Plugin API */,
@@ -259,6 +257,14 @@
 			name = ARRAY;
 			sourceTree = "<group>";
 		};
+		D14BF41F1EF0C29900E50D71 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D14BF4201EF0C29900E50D71 /* libjson.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D19CC171135378140004336E /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,7 +299,6 @@
 				D13116BB1A03B3C300DE1322 /* C_REAL.h in Headers */,
 				D13116E71A03BC1100DE1322 /* ARRAY_LONGINT.h in Headers */,
 				D13116C51A03B48900DE1322 /* C_TEXT.h in Headers */,
-				D1AB8BD71EEEDCF800623AE3 /* cJSON.h in Headers */,
 				D13116AD1A03B10800DE1322 /* C_LONGINT.h in Headers */,
 				D120937F13534DCC00A72CAA /* 4DPlugin.h in Headers */,
 				D13116E51A03BC1100DE1322 /* ARRAY_INTEGER.h in Headers */,
@@ -401,7 +406,6 @@
 				D13116EC1A03BE2300DE1322 /* ARRAY_TIME.cpp in Sources */,
 				D13116B01A03B33D00DE1322 /* C_INTEGER.cpp in Sources */,
 				D13116A91A03ACB700DE1322 /* 4DPluginAPI.c in Sources */,
-				D1AB8BD61EEEDCF800623AE3 /* cJSON.c in Sources */,
 				D13116E21A03BC1100DE1322 /* ARRAY_BOOLEAN.cpp in Sources */,
 				D13116BA1A03B3C300DE1322 /* C_REAL.cpp in Sources */,
 				D13116F41A03C7AF00DE1322 /* ARRAY_DATE.cpp in Sources */,
@@ -446,7 +450,7 @@
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Bundles";
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/a";
 				LIBRARY_STYLE = Bundle;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
@@ -485,7 +489,7 @@
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Bundles";
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/a";
 				LIBRARY_STYLE = Bundle;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
@@ -522,7 +526,7 @@
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Bundles";
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/a";
 				LIBRARY_STYLE = Bundle;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
@@ -551,7 +555,7 @@
 				OBJROOT = "$(SRCROOT)/build";
 				SDKROOT = macosx10.8;
 				SYMROOT = "$(SRCROOT)/$(PRODUCT_NAME).4dbase/Plugins";
-				USER_HEADER_SEARCH_PATHS = cJSON;
+				USER_HEADER_SEARCH_PATHS = include/libjson;
 			};
 			name = Development;
 		};
@@ -567,7 +571,7 @@
 				OBJROOT = "$(SRCROOT)/build";
 				SDKROOT = macosx10.8;
 				SYMROOT = "$(SRCROOT)/$(PRODUCT_NAME).4dbase/Plugins";
-				USER_HEADER_SEARCH_PATHS = cJSON;
+				USER_HEADER_SEARCH_PATHS = include/libjson;
 			};
 			name = Deployment;
 		};
@@ -581,7 +585,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				SDKROOT = macosx10.8;
 				SYMROOT = "$(SRCROOT)/$(PRODUCT_NAME).4dbase/Plugins";
-				USER_HEADER_SEARCH_PATHS = cJSON;
+				USER_HEADER_SEARCH_PATHS = include/libjson;
 			};
 			name = Default;
 		};

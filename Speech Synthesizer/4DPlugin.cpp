@@ -12,6 +12,73 @@
 #include "4DPluginAPI.h"
 #include "4DPlugin.h"
 
+#pragma mark JSON
+
+JSONNODE *json_parse_text_param(C_TEXT &t)
+{
+	std::wstring u32;
+	
+#if VERSIONWIN
+	u32 = std::wstring((wchar_t *)t.getUTF16StringPtr());
+#else
+	
+	uint32_t dataSize = (t.getUTF16Length() * sizeof(wchar_t))+ sizeof(wchar_t);
+	std::vector<char> buf(dataSize);
+	
+	PA_ConvertCharsetToCharset((char *)t.getUTF16StringPtr(),
+														 t.getUTF16Length() * sizeof(PA_Unichar),
+														 eVTC_UTF_16,
+														 (char *)&buf[0],
+														 dataSize,
+														 eVTC_UTF_32);
+	
+	u32 = std::wstring((wchar_t *)&buf[0]);
+#endif
+	return json_parse((json_const json_char *)u32.c_str());
+}
+
+BOOL json_get_string(JSONNODE *json, CUTF8String &value)
+{
+	value = (const uint8_t *)"";
+	
+	if(json)
+	{
+		if(json_type(json) == JSON_STRING)
+		{
+			json_char *s = json_as_string(json);
+			
+			std::wstring wstr = std::wstring(s);
+			
+			C_TEXT t;
+			
+#if VERSIONWIN
+			t.setUTF16String((const PA_Unichar *)wstr.c_str(), (uint32_t)wstr.length());
+#else
+			uint32_t dataSize = (wstr.length() * sizeof(wchar_t))+ sizeof(PA_Unichar);
+			std::vector<char> buf(dataSize);
+			
+			uint32_t len = PA_ConvertCharsetToCharset((char *)wstr.c_str(),
+																								wstr.length() * sizeof(wchar_t),
+																								eVTC_UTF_32,
+																								(char *)&buf[0],
+																								dataSize,
+																								eVTC_UTF_16);
+			
+			t.setUTF16String((const PA_Unichar *)&buf[0], len);
+#endif
+			
+			t.copyUTF8String(&value);
+			
+			json_free(s);
+		}
+		
+	}
+	
+	return !!value.length();
+}
+
+#pragma mark -
+
 namespace speech
 {
 	typedef struct
@@ -460,6 +527,8 @@ BOOL GetVoiceId(char *voiceNameStr, CUTF16String &voiceId)
 }
 #endif
 
+#pragma mark -
+
 void SAY(sLONG_PTR *pResult, PackagePtr pParams)
 {
 	C_TEXT Param1;
@@ -484,43 +553,42 @@ void SAY(sLONG_PTR *pResult, PackagePtr pParams)
 	CUTF16String voiceId;
 #endif
 	
-	//params in json; for future extension
-	CUTF8String u8str;
-	Param2.copyUTF8String(&u8str);
-	cJSON *json = cJSON_Parse((const char *)u8str.c_str());
+	JSONNODE *json = json_parse_text_param(Param2);
 	
 	if(json)
 	{
-		cJSON *json_rate = cJSON_GetObjectItem(json, "rate");
-		if((json_rate) && cJSON_IsNumber(json_rate))
+		JSONNODE *json_rate = json_get(json, L"rate");
+		if((json_rate) && (json_type(json_rate) == JSON_NUMBER))
 		{
 #if VERSIONMAC
-			ctx.rate = json_rate->valuedouble;
+			ctx.rate = json_as_float(json_rate);
 #else
-			rate = json_rate->valueint;
+			rate = json_as_int(json_rate);
 #endif
 		}
 		
-		cJSON *json_volume = cJSON_GetObjectItem(json, "volume");
-		if((json_volume) && cJSON_IsNumber(json_volume))
+		JSONNODE *json_volume = json_get(json, L"volume");
+		if((json_volume) && (json_type(json_volume) == JSON_NUMBER))
 		{
 #if VERSIONMAC
-			ctx.volume = json_volume->valuedouble;
+			ctx.volume = json_as_float(json_volume);
 #else
-			volume = json_volume->valueint;
+			volume = json_as_int(json_volume);
 #endif
 		}
 		
-		cJSON *json_voice = cJSON_GetObjectItem(json, "voice");
-		if((json_voice) && cJSON_IsString(json_voice))
+		JSONNODE *json_voice = json_get(json, L"voice");
+		
+		CUTF8String voice;
+		if(json_get_string(json_voice, voice))
 		{
 #if VERSIONMAC
-			ctx.voice = [NSString stringWithUTF8String:(const char *)json_voice->valuestring];
+			ctx.voice = [NSString stringWithUTF8String:(const char *)voice.c_str()];
 #else
-			GetVoiceId(json_voice->valuestring, voiceId);
+			GetVoiceId((char *)voice.c_str(), voiceId);
 #endif
 		}
-		cJSON_Delete(json);
+		json_delete(json);
 	}
 	
 #if VERSIONWIN
@@ -565,10 +633,10 @@ void SAY(sLONG_PTR *pResult, PackagePtr pParams)
 					
 					//SPSF_16kHz16BitMono;
 					format.cbSize = 0;
-					format.nAvgBytesPerSec = 32000;
+					format.nAvgBytesPerSec = 44100;
 					format.nBlockAlign = 2;
 					format.nChannels = 1;
-					format.nSamplesPerSec = 16000;
+					format.nSamplesPerSec = 22050;
 					format.wBitsPerSample = 16;
 					format.wFormatTag =WAVE_FORMAT_PCM;
 					
