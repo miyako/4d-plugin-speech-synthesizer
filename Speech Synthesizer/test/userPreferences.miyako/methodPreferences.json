@@ -1,0 +1,29 @@
+{
+	"Sources/Methods/update_manifest_json.4dm": {
+		"startSelection": 0,
+		"endSelection": 0,
+		"firstSelectedLine": 0,
+		"lastSelectedLine": 0,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2022-08-19T14:23:17.050Z"
+	},
+	"Sources/Methods/generate_project.4dm": {
+		"startSelection": 41,
+		"endSelection": 41,
+		"firstSelectedLine": 1,
+		"lastSelectedLine": 1,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2025-03-24T01:01:43.833Z"
+	},
+	"Sources/Methods/test.4dm": {
+		"startSelection": 7,
+		"endSelection": 7,
+		"firstSelectedLine": 12,
+		"lastSelectedLine": 12,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2025-03-24T02:20:18.536Z"
+	}
+}
