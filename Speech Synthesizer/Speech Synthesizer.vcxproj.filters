@@ -5,6 +5,9 @@
       <Filter>4D Plugin API</Filter>
     </ClCompile>
     <ClCompile Include="4DPlugin-Speech-Synthesizer.cpp" />
+    <ClCompile Include="4D Plugin API\Classes\ARRAY_TEXT.cpp" />
+    <ClCompile Include="4D Plugin API\Classes\C_TEXT.cpp" />
+    <ClCompile Include="support\4DPlugin-JSON.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="4D Plugin API\4DPluginAPI.h">
@@ -23,6 +26,10 @@
       <Filter>4D Plugin API</Filter>
     </ClInclude>
     <ClInclude Include="4DPlugin-Speech-Synthesizer.h" />
+    <ClInclude Include="4D Plugin API\Classes\ARRAY_TEXT.h" />
+    <ClInclude Include="4D Plugin API\Classes\C_TEXT.h" />
+    <ClInclude Include="4D Plugin API\Classes\C_TYPES.h" />
+    <ClInclude Include="support\4DPlugin-JSON.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="4D Plugin API">
