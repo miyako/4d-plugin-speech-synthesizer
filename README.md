@@ -75,3 +75,5 @@ voices|ARRAY TEXT|
 On Windows 10, the Cortana voices are returned in addition to [SAPI](https://msdn.microsoft.com/en-us/library/ms723627(v=vs.85).aspx) voices.
 
 <img width="595" alt="2017-06-12 23 09 12" src="https://user-images.githubusercontent.com/1725068/27037977-99b1c0c4-4fc4-11e7-9af8-81045c91dfd7.png">
+
+some listed voices may not work without additional language packs.
