@@ -1,0 +1,16 @@
+[
+	{
+		"codeDescriptorWatches": [
+			{
+				"path": "test",
+				"watches": [
+					{
+						"type": 66,
+						"formula": "$voices",
+						"expanded": true
+					}
+				]
+			}
+		]
+	}
+]

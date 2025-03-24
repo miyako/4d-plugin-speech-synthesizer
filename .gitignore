@@ -3,3 +3,4 @@ Speech Synthesizer/.vs/*
 Speech Synthesizer/Objs*
 Speech Synthesizer/test/Plugins/Speech Synthesizer.bundle/Contents/Windows64/Speech Synthesizer.exp
 Speech Synthesizer/test/Plugins/Speech Synthesizer.bundle/Contents/Windows64/Speech Synthesizer.lib
+Speech Synthesizer/test/Plugins/Speech Synthesizer.bundle/Contents/Windows64/Speech Synthesizer.pdb
